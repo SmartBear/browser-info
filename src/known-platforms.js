@@ -1,9 +1,5 @@
 import { Entity } from './Entity';
 
-// platform:
-// /\([^)]*?([A-Z][a-z][A-Za-z]+)([A-Za-z0-9_ ]* )([0-9._]+)[;) ]/  1 - system, 2 - architektura, 3 - wersja
-// /\([^)]*?[A-Z][a-z][A-Za-z]+[A-Za-z0-9_ ]* [0-9._]+[;)]|\([^)]*?[A-Z][a-z][A-Za-z0-9 !_]+/
-
 const platforms = [
   new Entity('Windows', /Windows NT ([0-9.]+)/),
   new Entity('Windows Phone', /Windows Phone ([0-9.]+)/),
