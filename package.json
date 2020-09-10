@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/SmartBear/browser-info.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "keywords": [
     "smartbear",
     "browser",
