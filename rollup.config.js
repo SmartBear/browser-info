@@ -15,9 +15,10 @@ for(const ext of external) {
 }
 
 const safeName = $package.name.replace(/@/g, '').replace(/\//g, '-');
-const output = function(min) {
+
+function getOutput(min, sufix = '') {
   return {
-    file: 'dist/' + safeName + (min ? '.min' : '') + '.js',
+    file: `dist/${safeName}${sufix}${(min ? '.min' : '')}.js`,
     format: 'umd',
     name: $package.name,
     banner: `/* ${$package.name} v${$package.version} ` +
@@ -27,9 +28,9 @@ const output = function(min) {
     globals,
     sourcemap: true
   };
-};
+}
 
-const getBabelPlugin = function() {
+function getBabelPlugin() {
   return babel({
     exclude: 'node_modules/**',
     presets: [
@@ -43,13 +44,28 @@ const getBabelPlugin = function() {
       ]
     ]
   });
-};
+}
+
+function getTerserPlugin() {
+  return terser({
+    output: {
+      comments: (node, comment) => {
+        if (comment.type === "comment2") {
+          // multiline comment
+          return /LICENSE|\(c\)/.test(comment.value);
+        }
+        return false;
+      }
+    }
+  });
+}
+
 
 export default [
   // Uncompressed config
   {
     input,
-    output: output(),
+    output: getOutput(),
     plugins: [
       del({
         targets: 'dist/*',
@@ -63,7 +79,7 @@ export default [
   // Compressed config
   {
     input,
-    output: output(true),
+    output: getOutput(true),
     plugins: [
       getBabelPlugin(),
       terser({
@@ -77,6 +93,17 @@ export default [
           }
         }
       })
+    ],
+    external
+  },
+
+  // Embed version
+  {
+    input: 'src/embed.js',
+    output: getOutput(true, '.embed'),
+    plugins: [
+      getBabelPlugin(),
+      getTerserPlugin()
     ],
     external
   }

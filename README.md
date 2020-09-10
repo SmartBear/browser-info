@@ -20,6 +20,17 @@ console.log(BrowserInfo.version); // print detected browser's version string
 console.log(BrowserInfo.os); // print detected OS name
 ```
 
+### Auto Detect and Embed
+
+In `dist` directory there is a file with `.embed` sufix. Importing this library into your UI will cause calling
+`detect()` method and assigning `BrowserInfo` to `window.navigator.browserInfo` - this way it is accessible globally.
+
+```js
+import '@smartbear/browser-info/dist/smartbear-browser-info.embed.min'
+
+console.log(window.navigator.browserInfo);
+```
+
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
