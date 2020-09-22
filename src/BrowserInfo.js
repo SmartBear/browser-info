@@ -36,15 +36,11 @@ const BrowserInfo = {
   },
 
   toString () {
-    return `${this.name} ${this.versionString}`;
-  },
-
-  get versionAsString () {
-    return `${this.release}.${this.version}`;
+    return `${this.name} ${this.version}`;
   },
 
   get versionAsNumber() {
-    return parseInt(this.versionString.replace(/\./g, ''));
+    return parseInt(this.version.replace(/\./g, ''));
   }
 };
 

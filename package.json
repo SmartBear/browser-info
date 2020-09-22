@@ -1,6 +1,6 @@
 {
   "name": "@smartbear/browser-info",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tiny developer-friendly JS library that provides information about host browser",
   "main": "dist/smartbear-browser-info.min.js",
   "scripts": {
