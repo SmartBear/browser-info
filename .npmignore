@@ -1,4 +1,5 @@
-src
+/docs
+/src
 .editorconfig
 .eslintignore
 .eslintrc
