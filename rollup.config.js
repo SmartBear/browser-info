@@ -1,6 +1,8 @@
 'use strict';
 
-import babel from 'rollup-plugin-babel';
+import cjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
 
@@ -37,12 +39,14 @@ function getBabelPlugin() {
       [
         '@babel/env',
         {
-          useBuiltIns: 'entry',
-          corejs: '3.6',
+          targets: '> 2%, Firefox ESR, ie 11, safari 10, ios_saf 10',
+          useBuiltIns: 'usage',
+          corejs: 3,
           modules: false
         }
       ]
-    ]
+    ],
+    babelHelpers: 'bundled'
   });
 }
 
@@ -71,6 +75,8 @@ export default [
         targets: 'dist/*',
         runOnce: true
       }),
+      cjs(),
+      resolve(),
       getBabelPlugin()
     ],
     external
@@ -81,6 +87,8 @@ export default [
     input,
     output: getOutput(true),
     plugins: [
+      cjs(),
+      resolve(),
       getBabelPlugin(),
       terser({
         output: {
@@ -102,6 +110,8 @@ export default [
     input: 'src/embed.js',
     output: getOutput(true, '.embed'),
     plugins: [
+      cjs(),
+      resolve(),
       getBabelPlugin(),
       getTerserPlugin()
     ],
