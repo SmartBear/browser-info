@@ -9,12 +9,13 @@
     <main></main>
     <script src="https://raw.githack.com/SmartBear/browser-info/master/dist/smartbear-browser-info.embed.min.js"></script>
     <script>
-        const main = document.getElementsByTagName('main')[0];
-        let table = '<table><tr><th>property</th><th>type</th><th>value</th></tr>';
-        for (let k in navigator.browserInfo) {
-            const t = typeof navigator.browserInfo[k];
+        var main = document.getElementsByTagName('main')[0];
+        var table = '<table><tr><th>property</th><th>type</th><th>value</th></tr>';
+        var k, t;
+        for (k in navigator.browserInfo) {
+            t = typeof navigator.browserInfo[k];
             if (t !== 'function') {
-                table += `<tr><td>${k}</td><td>${t}</td><td>${navigator.browserInfo[k]}</td></tr>`;
+                table += '<tr><td>' + k + '</td><td>' + t + '</td><td>' + navigator.browserInfo[k] + '</td></tr>';
             }
         }
         table += '</table>';
