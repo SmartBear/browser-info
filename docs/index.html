@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowserInfo Test</title>
+</head>
+<body>
+    <main></main>
+    <script src="https://raw.githack.com/SmartBear/browser-info/master/dist/smartbear-browser-info.embed.min.js"></script>
+    <script>
+        const main = document.getElementsByTagName('main')[0];
+        let table = '<table><tr><th>property</th><th>type</th><th>value</th></tr>';
+        for (let k in navigator.browserInfo) {
+            const t = typeof navigator.browserInfo[k];
+            if (t !== 'function') {
+                table += `<tr><td>${k}</td><td>${t}</td><td>${navigator.browserInfo[k]}</td></tr>`;
+            }
+        }
+        table += '</table>';
+        main.innerHTML = table;
+    </script>
+</body>
+</html>
