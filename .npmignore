@@ -5,3 +5,4 @@
 .eslintrc
 .gitignore
 rollup.config.js
+*.tgz
