@@ -7,7 +7,7 @@ const browsers = [
   new Entity('SamsungInternet', /SamsungBrowser\/([0-9.]+)/),
   new Entity('Maxthon', /Maxthon\/([0-9.]+)/),
   new Entity('Chrome', /Chrome\/([0-9.]+)/),
-  new Entity('Safari', /Version\/([0-9.]+) Safari\//),
+  new Entity('Safari', /Version\/([0-9.]+)(?: .*)? Safari\//),
   new Entity('InternetExplorer', /MSIE ([0-9.]+)/)
 ];
 
