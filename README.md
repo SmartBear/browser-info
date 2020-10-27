@@ -17,7 +17,7 @@ Eg if you want to focus on major browsers and platforms.
 - ✔️ Edge
 - ✔️ Opera
 - ✔️ SamsungInternet
-- ✔️ Maxthon
+- ✔️ UCBrowser
 - ✔️ Safari
 - ✔️ InternetExplorer
 

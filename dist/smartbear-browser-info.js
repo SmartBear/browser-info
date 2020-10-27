@@ -1,4 +1,4 @@
-/* @smartbear/browser-info v1.2.2 | Copyright 2020 (c) SmartBear Software and contributors | https://github.com/SmartBear/browser-info/blob/master/LICENSE */
+/* @smartbear/browser-info v1.3.0 | Copyright 2020 (c) SmartBear Software and contributors | https://github.com/SmartBear/browser-info/blob/master/LICENSE */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -1299,7 +1299,7 @@
 	  return Entity;
 	}();
 
-	var browsers = [new Entity('Firefox', /Firefox\/([0-9.]+)/), new Entity('Edge', /Edge\/([0-9.]+)/), new Entity('Opera', /OPR\/([0-9.]+)/), new Entity('SamsungInternet', /SamsungBrowser\/([0-9.]+)/), new Entity('Maxthon', /Maxthon\/([0-9.]+)/), new Entity('Chrome', /Chrome\/([0-9.]+)/), new Entity('Safari', /Version\/([0-9.]+)(?: .*)? Safari\//), new Entity('InternetExplorer', /MSIE ([0-9.]+)/)];
+	var browsers = [new Entity('Firefox', /Firefox\/([0-9.]+)/), new Entity('Edge', /Edge\/([0-9.]+)/), new Entity('Opera', /OPR\/([0-9.]+)/), new Entity('SamsungInternet', /SamsungBrowser\/([0-9.]+)/), new Entity('UCBrowser', /UCBrowser\/([0-9.]+)/), new Entity('Chrome', /Chrome\/([0-9.]+)/), new Entity('Safari', /Version\/([0-9.]+)(?: .*)? Safari\//), new Entity('InternetExplorer', /MSIE ([0-9.]+)/)];
 
 	var platforms = [new Entity('Windows', /Windows NT ([0-9.]+)/), new Entity('Windows Phone', /Windows Phone ([0-9.]+)/), new Entity('MacOS', /OS X ([0-9._]+)/), new Entity('iOS', /iPhone OS ([0-9_.]+)/), new Entity('iPadOS', /iPad.+?OS ([0-9_,]+)/), new Entity('ChromeOS', /CrOS [^ ]+ ([0-9.]+)/), new Entity('Android', /(?:Android|Adr) ([0-9.]+)/), new Entity('BlackBerry', /BlackBerry|BB10/), new Entity('webOS', /webOS\/([0-9.]+)/), new Entity('Linux', /Linux/)];
 
