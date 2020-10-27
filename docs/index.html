@@ -6,20 +6,44 @@
     <title>BrowserInfo Test</title>
 </head>
 <body>
-    <main></main>
+    <main>
+        <h1>BrowserInfo Test</h1>
+
+        <h2>navigator.userAgent</h2>
+        <p id="user-agent"></p>
+
+        <h2>navigator.browserInfo</h2>
+        <table id="browser-info">
+            <tr>
+                <th>property</th>
+                <th>type</th>
+                <th>value</th>
+            </tr>
+        </table>
+
+    </main>
     <script src="https://unpkg.com/@smartbear/browser-info@1.2.1/dist/smartbear-browser-info.embed.min.js"></script>
     <script>
-        var main = document.getElementsByTagName('main')[0];
-        var table = '<table><tr><th>property</th><th>type</th><th>value</th></tr>';
-        var k, t;
+        function td(content) {
+            var _td = document.createElement('td');
+            _td.innerText = content;
+            return _td;
+        }
+
+        document.getElementById('user-agent').innerText = navigator.userAgent;
+
+        var table = document.getElementById('browser-info');
+        var k, t, tr;
         for (k in navigator.browserInfo) {
             t = typeof navigator.browserInfo[k];
             if (t !== 'function') {
-                table += '<tr><td>' + k + '</td><td>' + t + '</td><td>' + navigator.browserInfo[k] + '</td></tr>';
+                tr = document.createElement('tr');
+                tr.appendChild(td(k));
+                tr.appendChild(td(t));
+                tr.appendChild(td(navigator.browserInfo[k]));
+                table.appendChild(tr);
             }
         }
-        table += '</table>';
-        main.innerHTML = table;
     </script>
 </body>
 </html>
