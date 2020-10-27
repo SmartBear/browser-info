@@ -1,4 +1,4 @@
-/* @smartbear/browser-info v1.2.1 | Copyright 2020 (c) SmartBear Software and contributors | https://github.com/SmartBear/browser-info/blob/master/LICENSE */
+/* @smartbear/browser-info v1.2.2 | Copyright 2020 (c) SmartBear Software and contributors | https://github.com/SmartBear/browser-info/blob/master/LICENSE */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
