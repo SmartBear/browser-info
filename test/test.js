@@ -7,7 +7,7 @@ describe('Test known combinations', () => {
     const data = require('./data.json');
     for (const entity of data) {
 
-        it(`${entity.expected.name} @ ${entity.expected.os}`, () => {
+        it(`${entity.expected.name} ${entity.expected.version} @ ${entity.expected.os}`, () => {
             BrowserInfo.detect(entity.userAgent);
             expect(BrowserInfo.os).to.be.eq(entity.expected.os);
             expect(BrowserInfo.name).to.be.eq(entity.expected.name);

@@ -175,6 +175,36 @@
         }
     },
     {
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.74 Safari/537.36 Edg/79.0.309.43",
+        "expected": {
+            "os": "Windows",
+            "name": "Edge",
+            "release": 79,
+            "version": "79.0.309.43",
+            "versionAsNumber": 79030943
+        }
+    },
+    {
+        "userAgent": "Mozilla/5.0 (Linuxl Android 7.0; Moto G(4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/45.09.2.5079",
+        "expected": {
+            "os": "Android",
+            "name": "Edge",
+            "release": 45,
+            "version": "45.09.2.5079",
+            "versionAsNumber": 450925079
+        }
+    },
+    {
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) Mobile/14F89 Safari/603.2.4 EdgiOS/41.1.35.1",
+        "expected": {
+            "os": "iOS",
+            "name": "Edge",
+            "release": 41,
+            "version": "41.1.35.1",
+            "versionAsNumber": 411351
+        }
+    },
+    {
         "userAgent": "Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 640 XL LTE Dual SIM) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10166",
         "expected": {
             "os": "Windows Phone",
