@@ -1,7 +1,7 @@
 'use strict';
 
-import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
+import { terser } from 'rollup-plugin-terser';
 
 import $package from './package.json';
 
@@ -31,6 +31,7 @@ function getOutput(sufix = '') {
 
 function getTerserPlugin() {
   return terser({
+    ecma: 5,
     output: {
       comments: (node, comment) => {
         if (comment.type === "comment2") {

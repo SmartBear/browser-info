@@ -33,7 +33,7 @@ var browsers = [
     new Entity('UCBrowser', /UCBrowser\/([0-9.]+)/),
     new Entity('Chrome', /Chrome\/([0-9.]+)/),
     new Entity('Safari', /Version\/([0-9.]+)(?: .*)? Safari\//),
-    new Entity('InternetExplorer', /(?:MSIE |IEMobile\/)([0-9.]+)/)
+    new Entity('InternetExplorer', /(?:MSIE |IEMobile\/|Trident\/.*rv:)([0-9.]+)/)
 ];
 
 var platforms = [
@@ -55,7 +55,7 @@ var BrowserInfo = {
     release: '?',
     version: '?',
 
-    detect: function(userAgent = null) {
+    detect: function(userAgent) {
         var ua = typeof userAgent === 'string' ? userAgent : window.navigator.userAgent,
             found = false,
             match,
