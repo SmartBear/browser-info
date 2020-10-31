@@ -4,7 +4,7 @@
 [![Current Release](https://img.shields.io/github/release/SmartBear/browser-info.svg)](releases)
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE.md)
 
-Tiny developer-friendly JS library that provides information about host browser and OS.
+Tiny (~2KB) vanilla JS developers-friendly library that provides information about host browser and OS.
 A goal of this library **isn't** creation of the all-knowing and heavy database. Rather focus is to keep is small and light.
 Eg if you want to focus on major browsers and platforms.
 

@@ -1,8 +1,5 @@
 'use strict';
 
-import cjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
 
@@ -18,9 +15,9 @@ for(const ext of external) {
 
 const safeName = $package.name.replace(/@/g, '').replace(/\//g, '-');
 
-function getOutput(min, sufix = '') {
+function getOutput(sufix = '') {
   return {
-    file: `dist/${safeName}${sufix}${(min ? '.min' : '')}.js`,
+    file: `dist/${safeName}${sufix}.js`,
     format: 'umd',
     name: $package.name,
     banner: `/* ${$package.name} v${$package.version} ` +
@@ -30,24 +27,6 @@ function getOutput(min, sufix = '') {
     globals,
     sourcemap: true
   };
-}
-
-function getBabelPlugin() {
-  return babel({
-    exclude: 'node_modules/**',
-    presets: [
-      [
-        '@babel/env',
-        {
-          targets: '> 2%, Firefox ESR, ie 11, safari 10, ios_saf 10',
-          useBuiltIns: 'usage',
-          corejs: 3,
-          modules: false
-        }
-      ]
-    ],
-    babelHelpers: 'bundled'
-  });
 }
 
 function getTerserPlugin() {
@@ -64,43 +43,16 @@ function getTerserPlugin() {
   });
 }
 
-
 export default [
-  // Uncompressed config
+  // Compressed config
   {
     input,
     output: getOutput(),
     plugins: [
       del({
-        targets: 'dist/*',
-        runOnce: true
+        targets: 'dist/*'
       }),
-      cjs(),
-      resolve(),
-      getBabelPlugin()
-    ],
-    external
-  },
-
-  // Compressed config
-  {
-    input,
-    output: getOutput(true),
-    plugins: [
-      cjs(),
-      resolve(),
-      getBabelPlugin(),
-      terser({
-        output: {
-          comments: (node, comment) => {
-            if (comment.type === "comment2") {
-              // multiline comment
-              return /LICENSE|\(c\)/.test(comment.value);
-            }
-            return false;
-          }
-        }
-      })
+      getTerserPlugin()
     ],
     external
   },
@@ -108,11 +60,8 @@ export default [
   // Embed version
   {
     input: 'src/embed.js',
-    output: getOutput(true, '.embed'),
+    output: getOutput('.embed'),
     plugins: [
-      cjs(),
-      resolve(),
-      getBabelPlugin(),
       getTerserPlugin()
     ],
     external
