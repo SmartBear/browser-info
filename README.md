@@ -8,6 +8,8 @@ Tiny (~2KB) vanilla JS developers-friendly library that provides information abo
 A goal of this library **isn't** creation of the all-knowing and heavy database. Rather focus is to keep is small and light.
 Eg if you want to focus on major browsers and platforms.
 
+Demo: https://smartbear.github.io/browser-info/
+
 ## Supported Browsers and OS
 
 ### Browsers
