@@ -1,6 +1,6 @@
 {
   "name": "@smartbear/browser-info",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Tiny developer-friendly JS library that provides information about host browser",
   "main": "dist/smartbear-browser-info.js",
   "scripts": {
@@ -32,8 +32,8 @@
   },
   "homepage": "https://github.com/SmartBear/browser-info#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.8.1",
+    "chai": "^4.3.1",
+    "eslint": "^7.15.0",
     "mocha": "^8.2.0",
     "rollup": "^2.32.1",
     "rollup-plugin-delete": "^2.0.0",
