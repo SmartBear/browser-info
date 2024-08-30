@@ -1,4 +1,4 @@
-import Entity from "./entity";
+import Entity from "./entity.js";
 
 const windows = new Entity('Windows', /Windows NT ([0-9.]+)/);
 const windowsPhone = new Entity('Windows Phone', /Windows Phone ([0-9.]+)/);
@@ -13,4 +13,4 @@ const linux = new Entity('Linux', /Linux/);
 
 const platforms = [ windows, windowsPhone, macOs, iOS, iPadOS, chromeOS, android, blackBerry, webOS, linux];
 
-export  {windows, windowsPhone, macOs, iOS, iPadOS, chromeOS, android, blackBerry,webOS, linux, platforms};
+export {windows, windowsPhone, macOs, iOS, iPadOS, chromeOS, android, blackBerry,webOS, linux, platforms};
