@@ -1,11 +1,7 @@
 import { expect } from 'chai';
 import BrowserInfo from '../src/index.js';
+import data from './data.json' with { type: "json" };
 
-// import data from './data.json' with { type: "json" };
-// - returns "ExperimentalWarning: Importing JSON modules"
-// so we use createRequire to import the json file as a workaround
-import { createRequire } from "module";
-const data = createRequire(import.meta.url)("./data.json");
 
 describe('Test known combinations', () => {
 

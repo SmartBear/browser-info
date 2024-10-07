@@ -1,5 +1,6 @@
 import globals from "globals";
 import js from "@eslint/js";
+import babel from "@babel/eslint-parser";
 
 export default [
   {
@@ -10,7 +11,16 @@ export default [
     languageOptions: {
       globals: globals.browser,
       ecmaVersion: 2020,
-      sourceType: "module"
+      sourceType: "module",
+      parser: babel,
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          plugins: [
+            "@babel/plugin-syntax-import-assertions"
+          ]
+        }
+      },
     }
   },
   {
