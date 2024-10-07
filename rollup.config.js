@@ -3,7 +3,7 @@
 import del from 'rollup-plugin-delete';
 import terser from '@rollup/plugin-terser';
 
-import $package from './package.json';
+import $package from './package.json' with { type: 'json' };
 
 const input = 'src/index.js';
 const external = Object.keys($package.dependencies || []);
