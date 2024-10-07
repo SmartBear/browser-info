@@ -1,4 +1,4 @@
-import Entity from "./entity";
+import Entity from "./entity.js";
 
 const firefox = new Entity('Firefox', /Firefox\/([0-9.]+)/);
 const edge = new Entity('Edge', /Edg[AeiOS]{0,3}\/([0-9.]+)/);

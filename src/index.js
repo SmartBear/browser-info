@@ -1,5 +1,5 @@
-import {macOs, platforms} from "./platforms";
-import {browsers} from "./browsers";
+import { platforms, macOs} from "./platforms.js";
+import {browsers} from "./browsers.js";
 
 
 let BrowserInfo = {
