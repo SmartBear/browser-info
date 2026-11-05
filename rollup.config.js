@@ -15,10 +15,10 @@ for(const ext of external) {
 
 const safeName = $package.name.replace(/@/g, '').replace(/\//g, '-');
 
-function getOutput(sufix = '') {
+function getOutput(sufix = '', format = 'umd') {
   return {
-    file: `dist/${safeName}${sufix}.js`,
-    format: 'umd',
+    file: `dist/${safeName}${sufix}${format === 'es' ? '.esm.js' : format === 'cjs' ? '.cjs' : '.js'}`,
+    format,
     name: $package.name,
     banner: `/* ${$package.name} v${$package.version} ` +
     `| Copyright ${new Date().getFullYear()} (c) SmartBear Software and contributors ` +
@@ -48,7 +48,7 @@ export default [
   // Compressed config
   {
     input,
-    output: getOutput(),
+    output: [getOutput(), getOutput('', 'es'), getOutput('', 'cjs')],
     plugins: [
       del({
         targets: 'dist/*'
@@ -61,7 +61,7 @@ export default [
   // Embed version
   {
     input: 'src/embed.js',
-    output: getOutput('.embed'),
+    output: [getOutput('.embed'), getOutput('.embed', 'es'), getOutput('.embed', 'cjs')],
     plugins: [
       getTerserPlugin()
     ],
