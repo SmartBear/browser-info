@@ -1,34 +1,24 @@
 import globals from "globals";
 import js from "@eslint/js";
-import babel from "@babel/eslint-parser";
 
 export default [
   {
-    ignores: ["**/node_modules/**", "dist/*", "docs/*"],
+    ignores: ["**/node_modules/**", "dist/*", "docs/*", "coverage/**"],
   },
   js.configs.recommended,
   {
     languageOptions: {
       globals: globals.browser,
-      ecmaVersion: 2020,
+      ecmaVersion: "latest",
       sourceType: "module",
-      parser: babel,
-      parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-          plugins: [
-            "@babel/plugin-syntax-import-assertions"
-          ]
-        }
-      },
     }
   },
   {
-    files: ['test/*.js'],
+    files: ['test/*.js', 'test-package/*.js'],
     languageOptions: {
       globals: {
         ...globals.mocha,
-        // ...globals.node,
+        ...globals.node,
       },
     },
   }];

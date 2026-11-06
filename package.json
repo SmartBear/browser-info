@@ -1,13 +1,32 @@
 {
   "name": "@smartbear/browser-info",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Tiny developer-friendly JS library that provides information about host browser",
-  "main": "dist/smartbear-browser-info.js",
+  "main": "dist/smartbear-browser-info.cjs",
+  "module": "dist/smartbear-browser-info.esm.js",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/smartbear-browser-info.esm.js",
+      "require": "./dist/smartbear-browser-info.cjs"
+    },
+    "./embed": {
+      "import": "./dist/smartbear-browser-info.embed.esm.js",
+      "require": "./dist/smartbear-browser-info.embed.cjs"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npx rollup -c",
     "lint": "npx eslint .",
-    "test": "npx mocha"
+    "test": "npx mocha",
+    "coverage": "c8 --all --include='src/**/*.js' --reporter=text --reporter=lcov mocha",
+    "test:package": "mocha test-package/*.js",
+    "prepack": "npm run build && npm run test:package"
   },
   "repository": {
     "type": "git",
@@ -43,16 +62,14 @@
   },
   "homepage": "https://github.com/SmartBear/browser-info#readme",
   "devDependencies": {
-    "@babel/eslint-parser": "^7.25.7",
-    "@babel/plugin-syntax-import-assertions": "^7.25.7",
-    "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.12.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "chai": "^5.1.1",
-    "eslint": "^9.12.0",
-    "globals": "^15.10.0",
-    "mocha": "^10.7.3",
-    "rollup": "^4.24.0",
-    "rollup-plugin-delete": "^2.1.0"
+    "@eslint/js": "^10.0.1",
+    "@rollup/plugin-terser": "^1.0.2",
+    "c8": "^12.0.0",
+    "chai": "^6.3.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "mocha": "^12.0.3",
+    "rollup": "^4.67.5",
+    "rollup-plugin-delete": "^3.0.2"
   }
 }

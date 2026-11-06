@@ -1,4 +1,4 @@
-import BrowserInfo from './index';
+import BrowserInfo from './index.js';
 
 window.navigator.browserInfo = BrowserInfo;
 BrowserInfo.detect();
